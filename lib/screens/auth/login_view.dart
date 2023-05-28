@@ -18,42 +18,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool rememberMe = true;
 
-  void login() async {
-    // Store the "Remember Me" status
+  Future<void> login() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('rememberMe', rememberMe);
     await prefs.setBool('login', true);
-  }
-
-  void _navigateToHome() {
-    Navigator.pushReplacementNamed(context, '/home');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    checkRememberMeStatus();
-    checkLoginStatus();
-  }
-
-  Future<void> checkRememberMeStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool rememberMeStatus = prefs.getBool('rememberMe') ?? false;
-
-    setState(() {
-      rememberMe = rememberMeStatus;
-    });
-  }
-
-  Future<void> checkLoginStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool loginStatus = prefs.getBool('login') ?? false;
-
-    print(loginStatus);
-
-    if (loginStatus) {
-      _navigateToHome();
-    }
   }
 
   @override

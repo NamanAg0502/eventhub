@@ -17,7 +17,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Future<void> _updateOnboardingStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('shownOnboarding', true);
+    await prefs.setBool('isViewed', true);
   }
 
   final List<OnboardingModel> _pages = [
@@ -77,14 +77,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       );
     } else {
       _updateOnboardingStatus();
-      // Navigate to the login/register screens
       _navigateToLoginScreen();
     }
   }
 
   void _skipOnboarding() {
     _updateOnboardingStatus();
-    // Navigate to the login/register screens
     _navigateToLoginScreen();
   }
 
@@ -94,21 +92,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       MaterialPageRoute(builder: (context) => const LoginScreen()),
       (Route<dynamic> route) => false,
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    checkOnboardingStatus();
-  }
-
-  Future<void> checkOnboardingStatus() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool shownOnboarding = prefs.getBool('shownOnboarding') ?? false;
-    if (shownOnboarding) {
-      // Onboarding already shown, navigate to the login/register screens
-      _navigateToLoginScreen();
-    }
   }
 }
 

@@ -186,7 +186,132 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  EventCard(event: event)
+                  SingleChildScrollView(
+                    controller: ScrollController(
+                      initialScrollOffset: 0,
+                      keepScrollOffset: true,
+                    ),
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Ongoing Events',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff120D26)),
+                        textAlign: TextAlign.left,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/events');
+                        },
+                        child: const Text('See All',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff4A43EC)),
+                            textAlign: TextAlign.left),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  SingleChildScrollView(
+                    controller: ScrollController(
+                      initialScrollOffset: 0,
+                      keepScrollOffset: true,
+                    ),
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                        const SizedBox(width: 16),
+                        EventCard(event: event),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 40),
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color(0xff00F8FF).withOpacity(0.16),
+                    ),
+                    child: Stack(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.all(18),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Invite your friends',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xff120D26),
+                                  ),
+                                ),
+                                const Text(
+                                  'Get \$20 for ticket',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff120D26),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(top: 10),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16, vertical: 5),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: const Color(0xff00F8FF),
+                                  ),
+                                  child: const Text(
+                                    'Invite',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )),
+                        Positioned(
+                            left: 120,
+                            child: Image.asset(
+                              'assets/images/explore/invite.png',
+                              width: 250,
+                              height: 160,
+                            ))
+                      ],
+                    ),
+                  )
                 ],
               )),
         ],

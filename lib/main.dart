@@ -1,8 +1,11 @@
 import 'package:eventhub/screens/auth/login_view.dart';
 import 'package:eventhub/screens/auth/register_view.dart';
 import 'package:eventhub/screens/event/create_event.dart';
+import 'package:eventhub/screens/event/events.dart';
+import 'package:eventhub/screens/info/personal_info.dart';
 import 'package:eventhub/screens/menu/explore_screen.dart';
 import 'package:eventhub/screens/menu/home_screen.dart';
+import 'package:eventhub/screens/menu/profile_screen.dart';
 import 'package:eventhub/widgets/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,7 +67,10 @@ class MyApp extends StatelessWidget {
             '/register': (context) => const RegisterScreen(),
             '/home': (context) => const HomeScreen(),
             '/explore': (context) => const ExploreScreen(),
+            '/events': (context) => const EventsScreen(),
             '/create-event': (context) => const CreateEventScreen(),
+            '/profile': (context) => const ProfileScreen(),
+            '/profile-info': (context) => const ProfileInfoScreen(),
           },
         ));
   }

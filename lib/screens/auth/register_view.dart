@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               password: passwordController.text,
               name: nameController.text)
           .then((value) {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamed(context, '/profile-info');
         showToast(context, 'Account created successfully', isError: false);
       }).catchError((error) {
         print(error);
